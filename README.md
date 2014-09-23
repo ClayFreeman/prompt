@@ -53,12 +53,15 @@ int main() {
     _PROMPT_RELOP_GREATER_THAN, 'Z',
     "The character that you entered was not lowercase.  Please try again.\n");
   std::cout << char1 << '\n';
+
   std::string name = read_string("Please enter your full name: ");
   std::cout << name << '\n';
+
   char char2 = read_char("Please enter an uppercase character: ",
     _PROMPT_RELOP_LESS_THAN, 'a',
     "The character that you entered was not uppercase.  Please try again.\n");
   std::cout << char2 << '\n';
+
   return 0;
 }
 ```
