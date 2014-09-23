@@ -37,6 +37,8 @@ static _PROMPT_T_AUTO _prompt_read_item(std::string prompt, int relOp,
     else {
       // For normal types, use stream extraction
       std::cin >> ret;
+      // Ignore '\n'
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     // Check proficiency of input
@@ -45,7 +47,6 @@ static _PROMPT_T_AUTO _prompt_read_item(std::string prompt, int relOp,
     if (std::cin.fail()) {
       // Clean the input stream in case of invalid data
       std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     if (!proficient) {
