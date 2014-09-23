@@ -16,8 +16,8 @@ Each of the relational operators in C++ have been mapped to a macro.  See the
 table below for mappings.  Alternatively, you can use the
 `_PROMPT_RELOP_IRRELEVANT` macro to not test the data at all.
 
-| Operator |                   Macro                  |
-|:--------:|:----------------------------------------:|
+| Operator | Macro                                    |
+|:--------:|------------------------------------------|
 |   `==`   | `_PROMPT_RELOP_EQUAL_TO`                 |
 |   `!=`   | `_PROMPT_RELOP_NOT_EQUAL_TO`             |
 |    `<`   | `_PROMPT_RELOP_LESS_THAN`                |
@@ -26,6 +26,7 @@ table below for mappings.  Alternatively, you can use the
 |   `>=`   | `_PROMPT_RELOP_GREATER_THAN_OR_EQUAL_TO` |
 
 #### Functions
+
 * `char read_char(std::string prompt, int relOp = _PROMPT_RELOP_IRRELEVANT, char
   test = ' ', std::string error = _PROMPT_DEFAULT_ERROR)` - Reads a `char` from
   the end user and returns the value.
@@ -39,3 +40,25 @@ table below for mappings.  Alternatively, you can use the
   _PROMPT_RELOP_IRRELEVANT, std::string test = ' ', std::string error =
   _PROMPT_DEFAULT_ERROR)` - Reads a `std::string` from the end user and returns
   the value.
+
+#### Examples
+
+```cpp
+#include <iostream>
+#include <string>
+#include "prompt.h"
+
+int main() {
+  char char1 = read_char("Please enter a lowercase character: ",
+    _PROMPT_RELOP_GREATER_THAN, 'Z',
+    "The character that you entered was not lowercase.  Please try again.\n");
+  std::cout << char1 << '\n';
+  std::string name = read_string("Please enter your full name: ");
+  std::cout << name << '\n';
+  char char2 = read_char("Please enter an uppercase character: ",
+    _PROMPT_RELOP_LESS_THAN, 'a',
+    "The character that you entered was not uppercase.  Please try again.\n");
+  std::cout << char2 << '\n';
+  return 0;
+}
+```
