@@ -62,27 +62,24 @@ static _PROMPT_T_AUTO _prompt_read_item(std::string prompt, int relOp,
  */
 
 // Read a single character and validate
-char read_char(std::string prompt, int relOp = _PROMPT_RELOP_IRRELEVANT,
-    char test = ' ', std::string error = _PROMPT_DEFAULT_ERROR) {
+char read_char(std::string prompt, int relOp, char test, std::string error) {
   return _prompt_read_item(prompt, relOp, test, error);
 }
 
 // Read a double and validate
-double read_double(std::string prompt, int relOp = _PROMPT_RELOP_IRRELEVANT,
-    double test = 0, std::string error = _PROMPT_DEFAULT_ERROR) {
+double read_double(std::string prompt, int relOp, double test,
+    std::string error) {
   return _prompt_read_item(prompt, relOp, test, error);
 }
 
 // Read an integer and validate
-int read_int(std::string prompt, int relOp = _PROMPT_RELOP_IRRELEVANT,
-    int test = 0, std::string error = _PROMPT_DEFAULT_ERROR) {
+int read_int(std::string prompt, int relOp, int test, std::string error) {
   return _prompt_read_item(prompt, relOp, test, error);
 }
 
 // Read a string and validate
-std::string read_string(std::string prompt,
-    int relOp = _PROMPT_RELOP_IRRELEVANT, std::string test = " ",
-    std::string error = _PROMPT_DEFAULT_ERROR) {
+std::string read_string(std::string prompt, int relOp, std::string test,
+    std::string error) {
   return _prompt_read_item(prompt, relOp, test, error);
 }
 #endif
